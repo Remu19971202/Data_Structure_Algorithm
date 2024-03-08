@@ -24,7 +24,7 @@ public class ListNode {
         sb.append("]");
         return sb.toString();
     }
-
+  
     public static ListNode of(int... values) {
         if (values == null || values.length == 0) {
             return null;
