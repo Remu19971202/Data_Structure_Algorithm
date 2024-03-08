@@ -24,4 +24,20 @@ public class ListNode {
         sb.append("]");
         return sb.toString();
     }
+  
+    public static ListNode of(int... values) {
+        if (values == null || values.length == 0) {
+            return null;
+        }
+
+        ListNode dummy = new ListNode(0, null);
+        ListNode current = dummy;
+
+        for (int value : values) {
+            current.next = new ListNode(value, null);
+            current = current.next;
+        }
+
+        return dummy.next;
+    }
 }
