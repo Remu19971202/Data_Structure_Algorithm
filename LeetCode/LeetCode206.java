@@ -11,7 +11,7 @@ public class LeetCode206 {
         ListNode o2 = new ListNode(2, o3);
         ListNode o1 = new ListNode(1, o2);
         System.out.println(o1);
-        ListNode n1 = new LeetCode206().reverseList_03(o1);
+        ListNode n1 = new LeetCode206().reverseList_04(o1);
         System.out.println("----------反转后的链表----------");
         System.out.println(n1);
     }
@@ -74,5 +74,23 @@ public class LeetCode206 {
         o1.next.next = o1;
         o1.next = null;
         return last;
+    }
+
+    //方法4:
+    // o1(旧头)、n1(新头)、o2(旧老二)
+    public ListNode reverseList_04(ListNode o1) {
+        //如果链表是一个空链表或链表中只有一个元素
+        if (o1 == null || o1.next == null) {
+            return o1;
+        }
+        ListNode o2 = o1.next;
+        ListNode n1 = o1;
+        while (o2 == null) {
+            o1.next = o2.next;
+            o2.next = n1;
+            n1 = o2;
+            o2 = o1.next;
+        }
+        return n1;
     }
 }
